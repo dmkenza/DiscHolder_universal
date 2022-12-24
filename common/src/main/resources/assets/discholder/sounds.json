@@ -1,0 +1,54 @@
+{
+  "record.baroque_nightmare": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/baroque_nightmare", "stream": true}
+    ]
+  },
+  "record.cleopona": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/cleopona", "stream": true}
+    ]
+  },
+  "record.for_the_new_lunar_republic": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/for_the_new_lunar_republic", "stream": true}
+    ]
+  },
+  "record.no_strings_attached": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/no_strings_attached", "stream": true}
+    ]
+  },
+  "record.sun_burst": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/sun_burst", "stream": true}
+    ]
+  },
+
+  "record.harmony": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/harmony", "stream": true}
+    ]
+  },
+  "record.spirit_animal": {
+    "category": "blocks",
+    "sounds": [
+      { "name": "discholder:record/spirit_animal", "stream": true}
+    ]
+  },
+
+  "profession.dj": {
+    "category": "ambient",
+    "sounds": [
+      { "name": "discholder:profession/dj", "stream": true}
+    ]
+  }
+
+
+}

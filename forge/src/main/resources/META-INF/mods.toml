@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "discholder"
+version = "${version}"
+displayName = "Kenza's Disc Holder and DJ"
+authors = "Kenza"
+description = '''
+Add disc holders and Dj villager to the game.
+'''
+#logoFile = ""
+
+[[dependencies.discholder]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.discholder]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.discholder]]
+modId = "architectury"
+mandatory = true
+versionRange = "[6.2.43,)"
+ordering = "AFTER"
+side = "BOTH"

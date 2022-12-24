@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "discholder:white_discholder",
+    "discholder:orange_discholder",
+    "discholder:magenta_discholder",
+    "discholder:light_blue_discholder",
+    "discholder:yellow_discholder",
+    "discholder:lime_discholder",
+    "discholder:pink_discholder",
+    "discholder:gray_discholder",
+    "discholder:light_gray_discholder",
+    "discholder:cyan_discholder",
+    "discholder:purple_discholder",
+    "discholder:blue_discholder",
+    "discholder:brown_discholder",
+    "discholder:green_discholder",
+    "discholder:red_discholder",
+    "discholder:black_discholder"
+  ]
+}

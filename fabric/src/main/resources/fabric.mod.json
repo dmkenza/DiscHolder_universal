@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "discholder",
+  "version": "${version}",
+  "name": "Kenza's Disc Holder and DJ",
+  "description": "Add disc holders and Dj villager to the game.",
+  "authors": [
+    "DmitryKenza"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/disc-holders-dj",
+    "sources": "https://github.com/dmkenza/DiscHolder_Fabric",
+    "issues": "https://github.com/dmkenza/DiscHolder_Fabric/issues"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/discholder/logo.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.kenza.discholder.DiscHolderFabric"
+    ],
+
+    "client": [
+      "com.kenza.discholder.DiscHolderFabricClient"
+    ],
+    "modmenu": []
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "java": ">=16"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+
+}

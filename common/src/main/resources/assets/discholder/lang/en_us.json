@@ -1,0 +1,48 @@
+{
+  "block.discholder.white_discholder": "White Discholder",
+  "block.discholder.orange_discholder": "Orange Discholder",
+  "block.discholder.magenta_discholder": "Magenta Discholder",
+  "block.discholder.light_blue_discholder": "Light Blue Discholder",
+  "block.discholder.yellow_discholder": "Yellow Discholder",
+  "block.discholder.lime_discholder": "Lime Discholder",
+  "block.discholder.pink_discholder": "Pink Discholder",
+  "block.discholder.gray_discholder": "Gray Discholder",
+  "block.discholder.light_gray_discholder": "Light Gray Discholder",
+  "block.discholder.cyan_discholder": "Cyan Discholder",
+  "block.discholder.purple_discholder": "Purple Discholder",
+  "block.discholder.blue_discholder": "Blue Discholder",
+  "block.discholder.brown_discholder": "Brown Discholder",
+  "block.discholder.red_discholder": "Red Discholder",
+  "block.discholder.green_discholder": "Green Discholder",
+  "block.discholder.black_discholder": "Black Discholder",
+
+  "itemGroup.discholder.discholder_tab": "Discholders",
+
+  "entity.minecraft.villager.dj": "DJ",
+
+
+  "item.discholder.music_disc_baroque_nightmare": "LaRaikaa - Baroque Nightmare",
+  "item.discholder.music_disc_baroque_nightmare.desc": "Baroque Nightmare",
+
+  "item.discholder.music_disc_cleopona": "Yellow Tune - Cleopatra",
+  "item.discholder.music_disc_cleopona.desc": "Cleopatra",
+
+  "item.discholder.music_disc_for_the_new_lunar_republic": "Mumble - For The New Lunar Republic",
+  "item.discholder.music_disc_for_the_new_lunar_republic.desc": "For The New Lunar Republic",
+
+  "item.discholder.music_disc_no_strings_attached": "Jeffthestrider - No Strings Attached",
+  "item.discholder.music_disc_no_strings_attached.desc": "No Strings Attached",
+
+  "item.discholder.music_disc_sun_burst": "Panic - Sun Burst",
+  "item.discholder.music_disc_sun_burst.desc": "Sun Burst",
+
+  "item.discholder.music_disc_harmony": "Flyghtning - The Tree of Harmony",
+  "item.discholder.music_disc_harmony.desc": "The Tree of Harmony",
+
+  "item.discholder.music_disc_spirit_animal": "MrMehster - SP1RIT ANIMAL",
+  "item.discholder.music_disc_spirit_animal.desc": "SP1RIT ANIMAL",
+
+
+  "item.discholder.music_disc_empty": "Any Disc",
+  "item.discholder.music_disc_empty.desc": "Any Disc"
+}
