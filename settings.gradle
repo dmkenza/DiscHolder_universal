@@ -5,6 +5,7 @@
         maven { url "https://maven.architectury.dev/" }
         maven { url "https://maven.minecraftforge.net/" }
         maven { url "https://jitpack.io" }
+        mavenCentral()
         maven { url "https://server.bbkr.space/" }
         maven {
             url "https://server.bbkr.space/artifactory/libs-release"
@@ -25,14 +26,30 @@
         maven { url 'https://plugins.gradle.org/m2/' }
         jcenter()
     }
-
 }
 
+ buildscript {
+     repositories {
+         maven { url = 'https://maven.minecraftforge.net' }
+         mavenCentral()
+     }
+     dependencies {
+         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+         // Make sure this version matches the one included in Kotlin for Forge
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
+         // OPTIONAL Gradle plugin for Kotlin Serialization
+//         classpath 'org.jetbrains.kotlin:kotlin-serialization:"${kotlin_version}"'
+     }
 
-include("common")
+
+ }
+
+
+
+ include("common")
 include("fabric")
 include("forge")
-//include ":LibGui:support"
-//project(":LibGui:support").projectDir = file("C:/projects_mc/support/LibGui/src")
+include ":LibGui"
+project(":LibGui").projectDir = file("C:/projects_mc/library/LibGui_universal/common")
 
 rootProject.name = "DiscHolder_universal"

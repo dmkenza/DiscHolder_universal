@@ -7,7 +7,6 @@ out/
 .gradle/
 output/
 bin/
-libs/
 
 .classpath
 .project
@@ -17,3 +16,5 @@ classes/
 .vscode
 .settings
 *.launch
+/forge/libs_mods/
+/common/.architectury-transformer/

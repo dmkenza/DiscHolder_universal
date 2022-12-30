@@ -10,7 +10,7 @@
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/disc-holders-dj",
     "sources": "https://github.com/dmkenza/DiscHolder_Fabric",
-    "issues": "https://github.com/dmkenza/DiscHolder_Fabric/issues"
+    "issues": "https://github.com/dmkenza/DiscHolder_universal/issues"
   },
 
   "license": "CC0-1.0",
@@ -28,6 +28,7 @@
     "modmenu": []
   },
   "mixins": [
+    "discholder-common.mixins.json"
   ],
   "depends": {
     "java": ">=16"
