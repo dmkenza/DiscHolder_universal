@@ -75,7 +75,7 @@ class DiscHolderBlockEntity(
     }
 
     override fun getDisplayName(): Text {
-        return Text.literal("Disc Holder")//literal("Disc Holder")
+        return Text.of("Disc Holder")//literal("Disc Holder")
     }
 
     override fun toUpdatePacket(): BlockEntityUpdateS2CPacket {

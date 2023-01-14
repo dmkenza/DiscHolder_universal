@@ -7,10 +7,8 @@ import com.kenza.discholder.registry.ModProfession;
 import com.kenza.discholder.registry.ModRegistries;
 //import dev.architectury.platform.forge.EventBuses;
 import com.kenza.discholder.mixin.PoiTypesInvoker;
-import com.samebutdifferent.morevillagers.MoreVillagers;
-import com.samebutdifferent.morevillagers.registry.MVBlocks;
 import dev.architectury.platform.forge.EventBuses;
-import net.minecraft.block.Block;
+import io.github.cottonmc.cotton.gui.impl.LibGuiCommon;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
@@ -33,8 +31,8 @@ import static com.kenza.discholder.RefKt.MOD_ID;
 @Mod(MOD_ID)
 public class DiscHolderForge {
 
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
-            DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MOD_ID);
+//    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
+//            DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, MOD_ID);
 
 //    public static final RegistryObject<BlockEntityType<BuilderBlockEntity>> BUILDER_BLOCK_ENTITY =
 //            BLOCK_ENTITIES.register("builder_block_entity", () ->
@@ -53,6 +51,9 @@ public class DiscHolderForge {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         EventBuses.registerModEventBus(MOD_ID, bus);
         bus.addListener(this::setup);
+
+
+        LibGuiCommon.onInitialize();
 
 
         ModRegistries.INSTANCE.onInit();

@@ -20,11 +20,7 @@ object ModRegistriesClient {
 
     fun onInit() {
 
-        try {
-            LibGuiClient.onInitializeClient()
-        } catch (e: Throwable) {
-            e.printStackTrace()
-        }
+
 
         ModNet.registerClient()
 

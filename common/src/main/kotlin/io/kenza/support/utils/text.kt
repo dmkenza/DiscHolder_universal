@@ -10,8 +10,11 @@ import net.minecraft.nbt.NbtCompound
 import net.minecraft.util.math.ChunkPos
 import net.minecraft.util.registry.Registry
 
-fun translatable(text: String, vararg args: Any): MutableText = Text.translatable(text, *args)
-fun literal(text: String): MutableText = Text.literal(text)
+//fun translatable(text: String, vararg args: Any): MutableText = Text.of(text, *args)
+fun literal(text: String): Text = Text.of(text)
+
+//fun translatable(text: String, vararg args: Any): MutableText = Text.translatable(text, *args)
+//fun literal(text: String): MutableText = Text.literal(text)
 
 val EMPTY = literal("")
 

@@ -11,7 +11,6 @@ import io.github.cottonmc.cotton.gui.widget.WItemSlot
 import io.github.cottonmc.cotton.gui.widget.WButton
 import net.minecraft.item.ItemStack
 import net.minecraft.item.MusicDiscItem
-import net.minecraft.text.LiteralTextContent
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 
@@ -104,15 +103,15 @@ class DiscHolderBlockEntityGuiDescription(
         }
 
 
-    fun getRightClickModeText(): Text {
-        val rightLickMode = false //blockEntity?.rightClickMode ?: false
-
-        if (rightLickMode) {
-            return MutableText.of(LiteralTextContent("Right Click Mode"))
-        } else {
-            return MutableText.of(LiteralTextContent("Left Click Mode"))
-        }
-
-    }
+//    fun getRightClickModeText(): Text {
+//        val rightLickMode = false //blockEntity?.rightClickMode ?: false
+//
+//        if (rightLickMode) {
+//            return MutableText.of(LiteralTextContent("Right Click Mode"))
+//        } else {
+//            return MutableText.of(LiteralTextContent("Left Click Mode"))
+//        }
+//
+//    }
 
 }

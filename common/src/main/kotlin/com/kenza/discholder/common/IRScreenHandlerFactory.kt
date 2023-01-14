@@ -37,7 +37,7 @@ open class ScreenHandlerFactory(
 ////        buf.writeBlockPos(pos)
 ////    }
 //
-    override fun getDisplayName(): Text? = Text.literal("")
+    override fun getDisplayName(): Text? = Text.of("")
 
     override fun saveExtraData(buf: PacketByteBuf?) {
         buf?.writeBlockPos(pos)

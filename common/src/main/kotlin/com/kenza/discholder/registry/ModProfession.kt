@@ -25,14 +25,14 @@ object ModProfession {
         6 to listOf(sellMusicForEmeraldsFactory, sellMusicForEmeraldsFactory ),
     )
     fun registerBlockStates() {
-        PoiTypesInvoker.invokeGetBlockStates(Blocks.JUKEBOX).forEach { state: BlockState? ->
-            PoiTypesInvoker.getTypeByState()[state] = Registry.POINT_OF_INTEREST_TYPE.getEntry(
-                RegistryKey.of(
-                    Registry.POINT_OF_INTEREST_TYPE_KEY,
-                    identifier("dj")
-                )
-            ).get()
-        }
+//        PoiTypesInvoker.invokeGetBlockStates(Blocks.JUKEBOX).forEach { state: BlockState? ->
+//            PoiTypesInvoker.getTypeByState()[state] = Registry.POINT_OF_INTEREST_TYPE.getEntry(
+//                RegistryKey.of(
+//                    Registry.POINT_OF_INTEREST_TYPE_KEY,
+//                    identifier("dj")
+//                )
+//            ).get()
+//        }
     }
     fun registerTrades() {
         tradesMap.map { (lvl, factories) ->

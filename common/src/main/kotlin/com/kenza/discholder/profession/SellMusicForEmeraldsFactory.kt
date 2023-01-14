@@ -18,7 +18,7 @@ class SellMusicForEmeraldsFactory (maxUses: Int, experience: Int) : TradeOffers.
     private val experience: Int
     private val multiplier: Float
 
-    override fun create(entity: Entity?, random: net.minecraft.util.math.random.Random?): TradeOffer {
+    override fun create(entity: Entity?, random: Random?): TradeOffer {
 
         val discs = Registry.ITEM.filter {
             it is MusicDiscItem

@@ -8,7 +8,8 @@ loom {
 
 dependencies {
 //    modImplementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs_dev', include: ['*.jar'])
+//    implementation fileTree(dir: 'libs_dev', include: ['*.jar'])
+
 //    modImplementation(project(":LibGui:support"))
 
     modApi "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
@@ -19,7 +20,7 @@ dependencies {
 
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
-
+    modImplementation ("io.github.cottonmc:LibGui:5.4.2+1.18.2")
 //    modImplementation ("io.github.cottonmc:LibGui:6.0.1+1.19")
 }
 

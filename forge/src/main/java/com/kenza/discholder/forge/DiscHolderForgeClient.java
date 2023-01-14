@@ -2,6 +2,7 @@ package com.kenza.discholder.forge;
 
 import com.kenza.discholder.registry.ModRegistriesClient;
 import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
+import io.github.cottonmc.cotton.gui.impl.client.LibGuiClient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -30,6 +31,10 @@ public class DiscHolderForgeClient {
 //        CottonHud.add(new WHudTest(), 10, -20, 10, 10);
 //        CottonHud.add(new WLabel(Text.literal("Test label")), 10, -30, 10, 10);
 ////
+
+
+        LibGuiClient.onInitialize();
+
         ModRegistriesClient.INSTANCE.onInit();
     }
 

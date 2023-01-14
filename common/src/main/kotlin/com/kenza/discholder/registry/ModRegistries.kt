@@ -6,6 +6,7 @@ import com.kenza.discholder.MOD_ID
 import com.kenza.discholder.block.DiscHolderBlock
 import com.kenza.discholder.commonPlatformHelper
 import com.kenza.discholder.entity.DiscHolderBlockEntity
+import com.kenza.discholder.mixin.PoiTypesInvoker
 import com.kenza.discholder.registry.ModProfession.registerBlockStates
 import com.kenza.discholder.registry.ModProfession.registerTrades
 import com.kenza.discholder.render.DiscHolderBlockEntityGuiDescription
@@ -87,11 +88,6 @@ object ModRegistries {
 
     fun onInit() {
 
-        try {
-            LibGuiCommon.onInitialize()
-        }catch (e: Throwable){
-            e.printStackTrace()
-        }
 
         registerDischodlers()
 
@@ -111,7 +107,7 @@ object ModRegistries {
             identifier(soundId).apply {
                 soundEvent().let {
                     identifier(itemId).item {
-                        createMusicDisc(it)
+                        createMusicDisc(SoundEvent(identifier(soundId)))
                     }
                 }
             }
@@ -138,9 +134,15 @@ object ModRegistries {
             poiType {
                 val block = Blocks.JUKEBOX as Block
 //                block
-                PointOfInterestType(
-                    ImmutableSet.copyOf<BlockState>(block.stateManager.states), 1, 1
+
+                PoiTypesInvoker.invokeConstructor(
+                    "dj", PointOfInterestType.getAllStatesOf(Blocks.JUKEBOX), 1, 1
                 )
+
+//                PointOfInterestType.register("dj", PointOfInterestType.getAllStatesOf(Blocks.JUKEBOX), 1, 1)
+//                PointOfInterestType(
+//                    ImmutableSet.copyOf<BlockState>(block.stateManager.states), 1, 1
+//                )
             }.let {
                 MOD_DJ_POI = it
             }
@@ -150,8 +152,7 @@ object ModRegistries {
             profession {
                 VillagerProfession(
                     "dj",
-                    { holder: RegistryEntry<PointOfInterestType> -> holder.value() as PointOfInterestType == MOD_DJ_POI.get() },
-                    { holder: RegistryEntry<PointOfInterestType> -> holder.value() as PointOfInterestType == MOD_DJ_POI.get() },
+                    MOD_DJ_POI.get(),
                     ImmutableSet.of(),
                     ImmutableSet.of(),
                     MOD_SOUND_DJ_POI.get()
@@ -262,13 +263,13 @@ object ModRegistries {
 
     }
 
-    private fun createMusicDisc(sound: RegistrySupplier<SoundEvent>) =
+    private fun createMusicDisc(sound: SoundEvent) =
         MusicDiscItem(
-            1, sound.get(), Item.Settings()
+            1, sound, Item.Settings()
                 .maxCount(1)
                 .group(MOD_TAB)
-                .rarity(Rarity.RARE),
-            0
+                .rarity(Rarity.RARE)
+
         )
 
 
