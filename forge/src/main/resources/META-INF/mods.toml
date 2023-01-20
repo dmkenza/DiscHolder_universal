@@ -1,8 +1,8 @@
-modLoader = "javafml"
-loaderVersion = "[43,)"
+#modLoader = "javafml"
+#loaderVersion = "[43,)"
 
-#modLoader="kotlinforforge"
-#loaderVersion="[3,)"
+modLoader="kotlinforforge"
+loaderVersion="[3,)"
 #issueTrackerURL = ""
 license = "MIT"
 
@@ -26,20 +26,20 @@ side = "BOTH"
 [[dependencies.discholder]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2,)"
+versionRange = "[1.19.3,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.discholder]]
 modId = "architectury"
 mandatory = true
-versionRange = "[6.2.43,)"
+versionRange = "[7.0.66,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.discholder]]
 modId="libgui"
 mandatory=true
-versionRange="[6.5.0,)"
+versionRange="[6.5.1,)"
 ordering="NONE"
 side="BOTH"

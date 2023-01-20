@@ -1,12 +1,11 @@
 package com.kenza.discholder.render
 
+import com.kenza.discholder.Test
 import com.kenza.discholder.entity.DiscHolderBlockEntity
 import com.kenza.discholder.utils.getSlotInBlock
 import io.kenza.support.utils.toVec3d
 import io.kenza.support.utils.value
 import net.minecraft.client.MinecraftClient
-import net.minecraft.client.render.RenderLayer
-import net.minecraft.client.render.RenderLayers
 import net.minecraft.client.render.VertexConsumerProvider
 import net.minecraft.client.render.block.entity.BlockEntityRenderer
 import net.minecraft.client.render.model.json.ModelTransformation
@@ -17,12 +16,11 @@ import net.minecraft.state.property.Properties
 import net.minecraft.text.MutableText
 import net.minecraft.util.hit.HitResult
 import net.minecraft.util.math.Direction
-import net.minecraft.util.math.Matrix4f
-import net.minecraft.util.math.Quaternion
-import net.minecraft.util.math.Vec3f
-import kotlin.math.absoluteValue
+import net.minecraft.util.math.RotationAxis.POSITIVE_Y
+import org.joml.Matrix4f
+import org.joml.Quaternionf
 
-class DiscHolderBlockEntityRenderer : BlockEntityRenderer<DiscHolderBlockEntity> {
+open class DiscHolderBlockEntityRenderer : BlockEntityRenderer<DiscHolderBlockEntity> {
 
     private val mc: MinecraftClient
         get() = MinecraftClient.getInstance()
@@ -68,7 +66,8 @@ class DiscHolderBlockEntityRenderer : BlockEntityRenderer<DiscHolderBlockEntity>
             matrices.push()
             matrices.translate(shiftX, shiftY, shiftZ)
 
-            if (!isXAxis) matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90f))
+//            if (!isXAxis) matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90f))
+            if (!isXAxis) matrices.multiply(POSITIVE_Y.rotationDegrees(90f))
 
 
             MinecraftClient.getInstance().itemRenderer.renderItem(
@@ -129,10 +128,10 @@ class DiscHolderBlockEntityRenderer : BlockEntityRenderer<DiscHolderBlockEntity>
         matrices.translate(shiftX, shiftY + .7f, shiftZ)
 
 
-        val rotation: Quaternion = renderManager.camera.getRotation().copy()
-        rotation.scale(-1.0f)
-        matrices.multiply(rotation)
+        val rotation: Quaternionf = renderManager.camera.rotation//.clone() as Quaternionf
 
+//        rotation.scale(-1.0f)
+        matrices.multiply(rotation)
         matrices.scale(-0.025f, -0.025f, 0.025f)
 
 
@@ -142,7 +141,6 @@ class DiscHolderBlockEntityRenderer : BlockEntityRenderer<DiscHolderBlockEntity>
 
 //        val x1 = vertexConsumers.getBuffer(RenderLayer.getCutout())
 //        vertexConsumers.getBuffer(RenderLayers.getBlockLayer(entity.cachedState)),
-
 
         /** extra render text for Iris mod fix transparent problem */
         mc.textRenderer.draw(

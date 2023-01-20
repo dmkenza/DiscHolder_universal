@@ -7,7 +7,7 @@ import net.minecraft.entity.passive.VillagerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.item.MusicDiscItem
-import net.minecraft.util.registry.Registry
+import net.minecraft.registry.Registries
 import net.minecraft.village.TradeOffer
 import net.minecraft.village.TradeOffers
 import java.util.*
@@ -20,7 +20,7 @@ class SellMusicForEmeraldsFactory (maxUses: Int, experience: Int) : TradeOffers.
 
     override fun create(entity: Entity?, random: net.minecraft.util.math.random.Random?): TradeOffer {
 
-        val discs = Registry.ITEM.filter {
+        val discs = Registries.ITEM.filter {
             it is MusicDiscItem
         }
         val offeredItems = (entity as VillagerEntity).offers.filter { it.sellItem.hasMusicDiscItemType() }.map { it.sellItem.item }

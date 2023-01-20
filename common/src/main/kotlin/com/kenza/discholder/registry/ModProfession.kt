@@ -7,8 +7,9 @@ import com.kenza.discholder.utils.identifier
 import dev.architectury.registry.level.entity.trade.TradeRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks
-import net.minecraft.util.registry.Registry
-import net.minecraft.util.registry.RegistryKey
+import net.minecraft.registry.Registries
+import net.minecraft.registry.RegistryKey
+import net.minecraft.registry.RegistryKeys
 import net.minecraft.village.TradeOffers
 
 object ModProfession {
@@ -26,13 +27,23 @@ object ModProfession {
     )
     fun registerBlockStates() {
         PoiTypesInvoker.invokeGetBlockStates(Blocks.JUKEBOX).forEach { state: BlockState? ->
-            PoiTypesInvoker.getTypeByState()[state] = Registry.POINT_OF_INTEREST_TYPE.getEntry(
+            PoiTypesInvoker.getTypeByState()[state] = Registries.POINT_OF_INTEREST_TYPE.getEntry(
                 RegistryKey.of(
-                    Registry.POINT_OF_INTEREST_TYPE_KEY,
+                    RegistryKeys.POINT_OF_INTEREST_TYPE,
                     identifier("dj")
                 )
             ).get()
         }
+
+//        PoiTypesInvoker.invokeGetBlockStates(MVBlocks.OCEANOGRAPHY_TABLE.get()).forEach(Consumer { state: BlockState? ->
+//            PoiTypesInvoker.getTypeByState()[state] = BuiltInRegistries.POINT_OF_INTEREST_TYPE.getHolder(
+//                ResourceKey.create(
+//                    Registries.POINT_OF_INTEREST_TYPE,
+//                    ResourceLocation(MoreVillagers.MOD_ID, "oceanography_table")
+//                )
+//            ).get()
+//        })
+
     }
     fun registerTrades() {
         tradesMap.map { (lvl, factories) ->

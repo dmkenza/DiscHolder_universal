@@ -9,6 +9,7 @@ import io.github.cottonmc.cotton.gui.ValidatedSlot
 import io.github.cottonmc.cotton.gui.widget.WGridPanel
 import io.github.cottonmc.cotton.gui.widget.WItemSlot
 import io.github.cottonmc.cotton.gui.widget.WButton
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.item.MusicDiscItem
 import net.minecraft.text.LiteralTextContent
@@ -114,5 +115,4 @@ class DiscHolderBlockEntityGuiDescription(
         }
 
     }
-
 }

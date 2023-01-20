@@ -2,7 +2,7 @@ package com.kenza.discholder.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.world.poi.PointOfInterestType;
 import net.minecraft.world.poi.PointOfInterestTypes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,7 +26,7 @@ public interface PoiTypesInvoker {
     }
 
     @Invoker("registerStates")
-    static void invokeRegisterBlockStates(RegistryEntry<PointOfInterestType> holder) {
+    static void invokeRegisterBlockStates(RegistryEntry<PointOfInterestType> holder,  Set<BlockState> states) {
         throw new AssertionError();
     }
 }

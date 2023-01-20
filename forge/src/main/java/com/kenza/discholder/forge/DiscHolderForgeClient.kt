@@ -1,24 +1,16 @@
-package com.kenza.discholder.forge;
+package com.kenza.discholder.forge
 
-import com.kenza.discholder.registry.ModRegistriesClient;
-import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
-import io.github.cottonmc.cotton.gui.impl.client.LibGuiClient;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-//
-import static com.kenza.discholder.RefKt.MOD_ID;
+import com.kenza.discholder.registry.ModRegistriesClient.onInit
+import io.github.cottonmc.cotton.gui.impl.client.LibGuiClient
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 
 //
-@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+//
+//@Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 //@Mod.EventBusSubscriber(modid = MOD_ID, bus = MOD)
-public class DiscHolderForgeClient {
-
-//    @OnlyIn(Dist.DEDICATED_SERVER)
-    @SubscribeEvent
-    public static void init(FMLClientSetupEvent event) {
+object DiscHolderForgeClient {
+    //    @OnlyIn(Dist.DEDICATED_SERVER)
+    fun init() {
 
 
 //        LibGuiClient.onInitializeClient();
@@ -31,11 +23,11 @@ public class DiscHolderForgeClient {
 //        CottonHud.add(new WHudTest(), 10, -20, 10, 10);
 //        CottonHud.add(new WLabel(Text.literal("Test label")), 10, -30, 10, 10);
 ////
-        LibGuiClient.onInitializeClient();
 
-        ModRegistriesClient.INSTANCE.onInit();
     }
 
+    fun setup(event: FMLClientSetupEvent) {
+        LibGuiClient.onInitializeClient()
+        onInit()
+    }
 }
-
-

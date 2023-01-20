@@ -1,9 +1,7 @@
 package com.kenza.discholder;
 
-import com.kenza.discholder.entity.DiscHolderBlockEntity;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.item.ItemGroup;
+import dev.architectury.registry.CreativeTabRegistry;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
@@ -63,9 +61,9 @@ public class CommonPlatformHelperFabric implements CommonPlatformHelper1 {
 ////        };
 //    }
 
-    public ItemGroup registerCreativeModeTab(Identifier name, Supplier<ItemStack> icon) {
-        return FabricItemGroupBuilder.build(name, icon);
-    }
+//    public CreativeTabRegistry.TabSupplier registerCreativeModeTab(Identifier name, Supplier<ItemStack> icon) {
+//        return  FabricItemGroup.builder(name).icon(icon).build();
+//    }
 
 //    @Override
 //    public Supplier<BlockEntityType<DiscHolderBlockEntity>> registerBlockEntityType(String name) {

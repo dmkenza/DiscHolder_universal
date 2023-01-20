@@ -1,16 +1,18 @@
 package com.kenza.discholder;
 
-import com.kenza.discholder.entity.DiscHolderBlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.item.ItemGroup;
+import dev.architectury.registry.CreativeTabRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Supplier;
 
+import static com.kenza.discholder.RefKt.MOD_ID;
+
 public interface CommonPlatformHelper1 {
 
-    public ItemGroup registerCreativeModeTab(Identifier name, Supplier<ItemStack> icon);
+    public static CreativeTabRegistry.TabSupplier registerCreativeModeTab(Identifier name, Supplier<ItemStack> icon) {
+        return  CreativeTabRegistry.create(new Identifier(MOD_ID, name.getPath()), icon);
+    }
 
 //    public Supplier<BlockEntityType<DiscHolderBlockEntity>> registerBlockEntityType(String name);
 

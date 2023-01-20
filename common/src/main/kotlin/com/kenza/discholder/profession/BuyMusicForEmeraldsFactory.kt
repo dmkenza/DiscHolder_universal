@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity
 import net.minecraft.entity.passive.VillagerEntity
 import net.minecraft.item.*
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
 import net.minecraft.village.TradeOffers
 import net.minecraft.village.TradeOffer
 import java.util.*

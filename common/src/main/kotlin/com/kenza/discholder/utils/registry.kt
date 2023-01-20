@@ -5,7 +5,6 @@ import dev.architectury.registry.registries.RegistrySupplier
 import io.kenza.support.utils.Ref
 import net.minecraft.block.Block
 import net.minecraft.util.Identifier
-import net.minecraft.util.registry.RegistryKey
 import net.minecraft.village.VillagerProfession
 import net.minecraft.world.poi.PointOfInterestType
 import java.util.function.Supplier

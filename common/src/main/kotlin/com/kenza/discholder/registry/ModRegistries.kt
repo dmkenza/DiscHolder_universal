@@ -2,6 +2,7 @@ package com.kenza.discholder.registry
 
 import com.google.common.base.Suppliers
 import com.google.common.collect.ImmutableSet
+import com.kenza.discholder.CommonPlatformHelper1
 import com.kenza.discholder.MOD_ID
 import com.kenza.discholder.block.DiscHolderBlock
 import com.kenza.discholder.commonPlatformHelper
@@ -10,11 +11,12 @@ import com.kenza.discholder.registry.ModProfession.registerBlockStates
 import com.kenza.discholder.registry.ModProfession.registerTrades
 import com.kenza.discholder.render.DiscHolderBlockEntityGuiDescription
 import com.kenza.discholder.utils.identifier
+import dev.architectury.registry.CreativeTabRegistry
 import dev.architectury.registry.menu.MenuRegistry
 import dev.architectury.registry.registries.DeferredRegister
-import dev.architectury.registry.registries.Registries
 import dev.architectury.registry.registries.RegistrySupplier
 import io.github.cottonmc.cotton.gui.impl.LibGuiCommon
+import dev.architectury.registry.registries.RegistrarManager
 import io.kenza.support.utils.*
 import io.kenza.support.utils.Ref.BLOCKS
 import io.kenza.support.utils.Ref.BLOCK_ENTITY_TYPES
@@ -28,14 +30,14 @@ import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.item.*
 import net.minecraft.network.PacketByteBuf
+import net.minecraft.registry.RegistryKeys
+import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.screen.ScreenHandlerContext
 import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.sound.SoundEvent
 import net.minecraft.util.DyeColor
 import net.minecraft.util.Rarity
 import net.minecraft.util.math.BlockPos
-import net.minecraft.util.registry.Registry
-import net.minecraft.util.registry.RegistryEntry
 import net.minecraft.village.VillagerProfession
 import net.minecraft.world.poi.PointOfInterestType
 import java.util.function.Supplier
@@ -43,18 +45,21 @@ import java.util.function.Supplier
 object ModRegistries {
 
     init {
-        ITEMS = DeferredRegister.create<Item>(MOD_ID, Registry.ITEM_KEY)
-        BLOCKS = DeferredRegister.create(MOD_ID, Registry.BLOCK_KEY)
-        BLOCK_ENTITY_TYPES = DeferredRegister.create(MOD_ID, Registry.BLOCK_ENTITY_TYPE_KEY)
+        ITEMS = DeferredRegister.create<Item>(MOD_ID, RegistryKeys.ITEM)
+        BLOCKS = DeferredRegister.create(MOD_ID, RegistryKeys.BLOCK)
+        BLOCK_ENTITY_TYPES = DeferredRegister.create(MOD_ID, RegistryKeys.BLOCK_ENTITY_TYPE)
 
-        POINT_OF_INTEREST_TYPES = DeferredRegister.create(MOD_ID, Registry.POINT_OF_INTEREST_TYPE_KEY)
-        VILLAGER_PROFESSIONS = DeferredRegister.create(MOD_ID, Registry.VILLAGER_PROFESSION_KEY)
+        POINT_OF_INTEREST_TYPES = DeferredRegister.create(MOD_ID, RegistryKeys.POINT_OF_INTEREST_TYPE)
+        VILLAGER_PROFESSIONS = DeferredRegister.create(MOD_ID, RegistryKeys.VILLAGER_PROFESSION)
 
         SOUNDS_EVENTS =
-            DeferredRegister.create<SoundEvent>(MOD_ID, Registry.SOUND_EVENT_KEY)
-        SCREEN_HANDLERS = DeferredRegister.create<ScreenHandlerType<*>>(MOD_ID, Registry.MENU_KEY)
+            DeferredRegister.create<SoundEvent>(MOD_ID, RegistryKeys.SOUND_EVENT)
+        SCREEN_HANDLERS = DeferredRegister.create<ScreenHandlerType<*>>(MOD_ID, RegistryKeys.SCREEN_HANDLER)
+        SCREEN_HANDLERS = DeferredRegister.create<ScreenHandlerType<*>>(MOD_ID, RegistryKeys.SCREEN_HANDLER)
 
     }
+
+    lateinit var MOD_TAB: CreativeTabRegistry.TabSupplier
 
     val musicsMap = listOf(
         "record.baroque_nightmare" to "music_disc_baroque_nightmare",
@@ -66,7 +71,6 @@ object ModRegistries {
         "record.spirit_animal" to "music_disc_spirit_animal",
     )
 
-    lateinit var MOD_TAB: ItemGroup
     lateinit var DISC_BLOCKENTITY_GUI_HANDLER_TYPE: ScreenHandlerType<DiscHolderBlockEntityGuiDescription>
 
     val MOD_ENTITY_TYPES_MAP = HashMap<String, RegistrySupplier<BlockEntityType<*>>>()
@@ -80,8 +84,8 @@ object ModRegistries {
 
     val UPDATE_INV_PACKET_ID = identifier("update_inv_packet_id")
 
-    val REGISTRIES: Supplier<Registries> = Suppliers.memoize {
-        Registries.get(MOD_ID)
+    val REGISTRIES: Supplier<RegistrarManager> = Suppliers.memoize {
+        RegistrarManager.get(MOD_ID)
     }
 
 
@@ -95,8 +99,10 @@ object ModRegistries {
             MOD_MUSIC_DISC_EMPTY = it
         }
 
-        MOD_SOUND_DJ_POI = REGISTRIES.get().get(Registry.SOUND_EVENT_KEY)
-            .register(identifier(MOD_ID), { SoundEvent(identifier("profession.dj")) })
+        MOD_SOUND_DJ_POI = REGISTRIES.get().get(RegistryKeys.SOUND_EVENT)
+            .register(identifier(MOD_ID)) {
+                SoundEvent.of(identifier("profession.dj"))
+            }
 
 
 //        MOD_SOUND_DJ_POI = identifier("profession.dj").soundEvent()
@@ -113,7 +119,7 @@ object ModRegistries {
             }
         }
         identifier("profession.dj").apply {
-            SoundEvent(this)
+            SoundEvent.of(this)
         }
 
         DISC_BLOCKENTITY_GUI_HANDLER_TYPE =
@@ -200,7 +206,7 @@ object ModRegistries {
             registerDiscHolder(itemId)
         }
 
-        MOD_TAB = commonPlatformHelper.registerCreativeModeTab(identifier("discholder_tab")) {
+        MOD_TAB = CommonPlatformHelper1.registerCreativeModeTab(identifier("discholder_tab")) {
             ItemStack(MOD_BLOCKS_MAP[tabItemName]?.get())
         }
     }
@@ -248,7 +254,7 @@ object ModRegistries {
 //                val x = type.get()
 //            }
 
-            item { BlockItem(MOD_BLOCKS_MAP[itemId]?.get(), Item.Settings().group(MOD_TAB)) }
+            item { BlockItem(MOD_BLOCKS_MAP[itemId]?.get(), Item.Settings().`arch$tab`(MOD_TAB)) }
             blockEntityType {
                 type!!.get()
             }.let {
@@ -262,7 +268,7 @@ object ModRegistries {
         MusicDiscItem(
             1, sound.get(), Item.Settings()
                 .maxCount(1)
-                .group(MOD_TAB)
+                .`arch$tab`(MOD_TAB)
                 .rarity(Rarity.RARE),
             0
         )

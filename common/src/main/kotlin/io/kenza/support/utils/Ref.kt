@@ -13,7 +13,7 @@ import net.minecraft.village.VillagerProfession
 import net.minecraft.world.poi.PointOfInterestType
 
 object Ref {
-    lateinit var MOD_TAB: ItemGroup
+//    lateinit var MOD_TAB: ItemGroup
 
     lateinit var ITEMS: DeferredRegister<Item>
     lateinit var SOUNDS_EVENTS: DeferredRegister<SoundEvent>

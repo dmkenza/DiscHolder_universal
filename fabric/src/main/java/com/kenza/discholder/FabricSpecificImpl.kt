@@ -8,7 +8,6 @@ import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.datafixer.TypeReferences
 import net.minecraft.util.Util
 import net.minecraft.util.math.BlockPos
-import net.minecraft.util.registry.Registry
 import java.util.function.Supplier
 
 

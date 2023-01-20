@@ -51,8 +51,8 @@ fun Identifier.item(supplier: Supplier<Item>): RegistrySupplier<Item> {
 fun Identifier.soundEvent(supplier: Supplier<SoundEvent> ): RegistrySupplier<SoundEvent> {
     return SOUNDS_EVENTS.register(this, supplier)
 }
-fun Identifier.soundEvent(): RegistrySupplier<SoundEvent> = soundEvent{SoundEvent(this)}
-
+//fun Identifier.soundEvent(): RegistrySupplier<SoundEvent> = soundEvent{SoundEvent(this)}
+fun Identifier.soundEvent(): RegistrySupplier<SoundEvent> = soundEvent{SoundEvent.of(this)}
 
 fun Identifier.screenHandler(supplier: Supplier<ScreenHandlerType<*>>): RegistrySupplier<ScreenHandlerType<*>> {
     return SCREEN_HANDLERS.register(this, supplier)
@@ -74,9 +74,10 @@ fun Identifier.blockEntityType(supplier: Supplier<BlockEntityType<*>>): Registry
 
 val EMPTY_ITEM = { Item(Item.Settings()) }
 
-private fun Block.defaultBlockItem(): BlockItem {
-    return BlockItem(this, Item.Settings().group(Ref.MOD_TAB))
-}
+//private fun Block.defaultBlockItem(): BlockItem {
+//    return BlockItem(this, Item.Settings().group(Ref.MOD_TAB))
+//}
+
 
 fun ChunkPos.toNbt() = NbtCompound().also {
     it.putInt("x", x)
