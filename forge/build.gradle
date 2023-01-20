@@ -42,7 +42,7 @@ dependencies {
     modImplementation fileTree(dir: 'libs_mods', include: ['*.jar'])
 
     common(fileTree(dir: 'libs_dev', include: ['*.jar']))
-    shadowCommon(fileTree(dir: 'libs_dev', include: ['*.jar']))
+//    shadowCommon(fileTree(dir: 'libs_dev', include: ['*.jar']))
 
 //    common(project(path: ":LibGui", configuration: "namedElements")) {
 //        transitive false

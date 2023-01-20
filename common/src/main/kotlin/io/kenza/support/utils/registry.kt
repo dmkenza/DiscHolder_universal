@@ -8,8 +8,10 @@ import io.kenza.support.utils.Ref.POINT_OF_INTEREST_TYPES
 import io.kenza.support.utils.Ref.SCREEN_HANDLERS
 import io.kenza.support.utils.Ref.SOUNDS_EVENTS
 import io.kenza.support.utils.Ref.VILLAGER_PROFESSIONS
+import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Block
 import net.minecraft.block.entity.BlockEntityType
+import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.screen.ScreenHandlerType
@@ -25,9 +27,21 @@ fun Identifier.block(supplier: Supplier<Block> ): RegistrySupplier<Block> {
     return BLOCKS.register(this, supplier)
 }
 
+fun Identifier.createBlock(func: () -> AbstractBlock.Settings): Supplier<Block> {
+    return Supplier {
+        Block(func.invoke())
+    }
+}
+
 //fun Identifier.fluid(fluid: Fluid): Identifier {
 //    Registry.register(Registry.FLUID, this, fluid)
 //    return this
+//}
+
+//fun Identifier.blockItem(): RegistrySupplier<Item> {
+//    return item {
+//        MOD_BLOCKS_MAP[this]?.get()!!.defaultBlockItem()
+//    }
 //}
 
 fun Identifier.item(supplier: Supplier<Item>): RegistrySupplier<Item> {
@@ -59,6 +73,10 @@ fun Identifier.blockEntityType(supplier: Supplier<BlockEntityType<*>>): Registry
 }
 
 val EMPTY_ITEM = { Item(Item.Settings()) }
+
+private fun Block.defaultBlockItem(): BlockItem {
+    return BlockItem(this, Item.Settings().group(Ref.MOD_TAB))
+}
 
 fun ChunkPos.toNbt() = NbtCompound().also {
     it.putInt("x", x)

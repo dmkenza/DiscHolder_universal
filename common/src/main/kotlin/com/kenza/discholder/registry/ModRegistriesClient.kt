@@ -20,12 +20,6 @@ object ModRegistriesClient {
 
     fun onInit() {
 
-        try {
-            LibGuiClient.onInitializeClient()
-        } catch (e: Throwable) {
-            e.printStackTrace()
-        }
-
         ModNet.registerClient()
 
         MOD_ENTITY_TYPES_MAP

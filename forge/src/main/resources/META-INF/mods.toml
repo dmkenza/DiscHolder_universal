@@ -36,3 +36,10 @@ mandatory = true
 versionRange = "[6.2.43,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.discholder]]
+modId="libgui"
+mandatory=true
+versionRange="[6.5.0,)"
+ordering="NONE"
+side="BOTH"

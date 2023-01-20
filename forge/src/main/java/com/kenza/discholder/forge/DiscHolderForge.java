@@ -7,9 +7,8 @@ import com.kenza.discholder.registry.ModProfession;
 import com.kenza.discholder.registry.ModRegistries;
 //import dev.architectury.platform.forge.EventBuses;
 import com.kenza.discholder.mixin.PoiTypesInvoker;
-import com.samebutdifferent.morevillagers.MoreVillagers;
-import com.samebutdifferent.morevillagers.registry.MVBlocks;
 import dev.architectury.platform.forge.EventBuses;
+import io.github.cottonmc.cotton.gui.impl.LibGuiCommon;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
@@ -54,6 +53,7 @@ public class DiscHolderForge {
         EventBuses.registerModEventBus(MOD_ID, bus);
         bus.addListener(this::setup);
 
+        LibGuiCommon.onInitialize();
 
         ModRegistries.INSTANCE.onInit();
         MinecraftForge.EVENT_BUS.register(this);

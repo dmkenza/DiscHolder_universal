@@ -87,11 +87,7 @@ object ModRegistries {
 
     fun onInit() {
 
-        try {
-            LibGuiCommon.onInitialize()
-        }catch (e: Throwable){
-            e.printStackTrace()
-        }
+
 
         registerDischodlers()
 
