@@ -1,7 +1,7 @@
 package com.kenza.discholder.profession
 
 import com.kenza.discholder.registry.ModRegistries.MOD_MUSIC_DISC_EMPTY
-import io.kenza.support.utils.Mathmc.between
+import io.kenza.support.utils.KMath.getBetween
 import net.minecraft.entity.Entity
 import net.minecraft.entity.passive.VillagerEntity
 import net.minecraft.item.*
@@ -21,7 +21,7 @@ class BuyMusicForEmeraldsFactory(maxUses: Int, experience: Int) : TradeOffers.Fa
 
         val itemStack = ItemStack(MOD_MUSIC_DISC_EMPTY.get(), 1)
         return TradeOffer(itemStack, ItemStack(Items.EMERALD).apply {
-            count = between(4, 7)
+            count = getBetween(4, 7)
         }, maxUses, experience, multiplier)
     }
 

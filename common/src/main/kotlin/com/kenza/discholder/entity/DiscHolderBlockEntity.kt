@@ -7,7 +7,6 @@ import dev.architectury.networking.NetworkManager
 import com.kenza.discholder.ImplementedInventory
 import com.kenza.discholder.registry.ModRegistries
 import io.netty.buffer.Unpooled
-import literal
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType

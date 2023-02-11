@@ -1,7 +1,7 @@
 package com.kenza.discholder.profession
 
 import com.kenza.discholder.utils.hasMusicDiscItemType
-import io.kenza.support.utils.Mathmc.between
+import io.kenza.support.utils.KMath
 import net.minecraft.entity.Entity
 import net.minecraft.entity.passive.VillagerEntity
 import net.minecraft.item.ItemStack
@@ -26,11 +26,11 @@ class SellMusicForEmeraldsFactory (maxUses: Int, experience: Int) : TradeOffers.
         val offeredItems = (entity as VillagerEntity).offers.filter { it.sellItem.hasMusicDiscItemType() }.map { it.sellItem.item }
 
         val itemForBuy = (discs - discs.intersect(offeredItems)).run {
-            get(between(0, this.size - 1))
+            get(KMath.getBetween(0, this.size - 1))
         }
 
         return TradeOffer(ItemStack(Items.EMERALD).apply {
-            count = between(15, 25)
+            count = KMath.getBetween(15, 25)
         }, ItemStack(itemForBuy), maxUses, experience, multiplier)
     }
 

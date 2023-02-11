@@ -6,11 +6,20 @@ loom {
     accessWidenerPath = file("src/main/resources/discholder.aw")
 }
 
+apply plugin: "com.github.johnrengelman.shadow"
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+}
 dependencies {
 //    modImplementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation fileTree(dir: 'libs_dev', include: ['*.jar'])
 //    modImplementation(project(":LibGui:support"))
-
+    common project(path: ':kenzaMcApi')
     modApi "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies

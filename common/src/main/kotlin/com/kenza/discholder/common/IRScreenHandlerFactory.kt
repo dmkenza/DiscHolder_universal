@@ -4,7 +4,6 @@ import com.kenza.discholder.render.DiscHolderBlockEntityGuiDescription
 import dev.architectury.registry.menu.ExtendedMenuProvider
 import dev.architectury.registry.menu.MenuRegistry
 import io.netty.buffer.Unpooled
-import literal
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.network.PacketByteBuf

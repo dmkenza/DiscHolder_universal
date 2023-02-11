@@ -49,7 +49,11 @@
  include("common")
 include("fabric")
 include("forge")
-include ":LibGui"
-project(":LibGui").projectDir = file("C:/projects_mc/library/LibGui_universal/common")
+//include ":LibGui"
+//project(":LibGui").projectDir = file("C:/projects_mc/library/LibGui_universal/common")
 
-rootProject.name = "DiscHolder_universal"
+ include ":kenzaMcApi"
+ project(":kenzaMcApi").projectDir = file("C:\\projects_mc\\support\\kenzaMcApi\\1_19_2")
+
+
+ rootProject.name = "DiscHolder_universal"
